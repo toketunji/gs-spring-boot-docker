@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: helloworld 
+  name: helloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: helloworld
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: helloworld
+    spec:
+      containers:
+      - image: toketunji/gs-spring-boot-docker
+        name: helloworld
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
